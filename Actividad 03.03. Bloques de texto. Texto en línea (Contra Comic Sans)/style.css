@@ -1,0 +1,41 @@
+body {
+    background-color: #C6E0EC;
+    font-family: sans-serif;
+}
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: underline;
+    font-size: 3em;
+}
+
+h2 {
+    background-color: #4099bf;
+    font-size: 2em;
+}
+
+h3 {
+    color: white;
+    background-color: #79B8D2;
+    font-size: 1.5em;
+}
+
+p {
+    text-align: justify;
+}
+
+blockquote {
+    font-style: italic;
+}
+
+pre {
+    background-color: white;
+    font-weight: bold;
+}
+
+address {
+    text-align: right;
+    font-family: serif;
+    font-style: unset;
+}
