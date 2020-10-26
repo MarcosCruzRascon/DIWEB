@@ -1,0 +1,29 @@
+body {
+    background-color: #FFEACC;
+    font-family: sans-serif;
+}
+
+h1 {
+    color: #995900;
+    text-transform: uppercase;
+}
+
+p {
+    font-size: 200%;
+}
+
+p.titulo {
+    color: #FF9500;
+}
+
+summary {
+    font-size: 400%;
+}
+
+span.uno {
+    background-color: #FFCCEA;
+}
+
+span.dos {
+    background-color: #FFFFFF;
+}
