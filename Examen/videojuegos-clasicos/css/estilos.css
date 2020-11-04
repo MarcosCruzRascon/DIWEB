@@ -1,0 +1,43 @@
+@font-face {
+    font-family: "Monoton";
+    src: url("../fonts/monoton.woff2");
+}
+
+body {
+    text-align: justify;
+    background-color: black;
+    color: white;
+}
+
+em.negrita {
+    font-weight: bold;
+    color: yellow;
+    font-style: normal;
+}
+
+em.cursiva {
+    font-style: italic;
+    color: red;
+}
+
+div {
+    border-style: solid;
+    border-color: white;
+}
+
+h1 {
+    color: green;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: "Monoton";
+    letter-spacing: 0.5em
+}
+
+h2 {
+    border-bottom: solid;
+    border-color: white;
+    padding-left: 1%;
+    padding-bottom: 1%;
+}
+
+p.emojis {}
