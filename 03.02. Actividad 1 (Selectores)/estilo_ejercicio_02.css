@@ -1,0 +1,57 @@
+body {
+    font-family: 'Open Sans';
+    background: grey;
+}
+
+h1 {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+li {
+    margin-right: 15%;
+    margin-bottom: 15%;
+    display: inline-block;
+}
+
+ul {
+    display: inline-block;
+    text-decoration: none;
+    list-style: none;
+}
+
+nav {
+    margin-left: 20%;
+}
+
+a[rel~='alternate']:after {
+    content: " Brexit"
+}
+
+a[rel~='next']:before {
+    content: url('add_circle_outline-24px.svg')
+}
+
+a[rel~='tag']:before {
+    content: url('shopping_cart-24px.svg')
+}
+
+a[rel~='bookmark']:before {
+    content: url('24px.svg')
+}
+
+a[rel~='help']:before {
+    content: url('image_search-24px.svg')
+}
+
+a[rel~='search']:before {
+    content: url('fingerprint-24px.svg')
+}
+
+a[rel~='nofollow']:before {
+    content: url('security-24px.svg')
+}

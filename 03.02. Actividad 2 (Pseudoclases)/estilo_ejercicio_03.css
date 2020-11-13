@@ -1,0 +1,19 @@
+li:nth-child(even):hover::after {
+    content: " --> Alabado sea el Espaguetti Voladr"
+}
+
+li:nth-child(odd):hover::before {
+    content: " Satán !!! -->  "
+}
+
+h2:nth-child(5)::first-letter {
+    color: red;
+}
+
+h2:nth-child(2) {
+    color: red;
+}
+
+li:nth-child(3) {
+    color: blue;
+}
