@@ -1,0 +1,14 @@
+header {
+    text-align: center;
+}
+
+nav {
+    background-color: black;
+    margin: 0% 7% 0% 7%;
+}
+
+nav div {
+    color: white;
+    display: inline;
+    padding: 1%;
+}
