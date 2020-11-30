@@ -1,81 +1,169 @@
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
+
 /* Pequeños reseteos */
+
 h1,
 h3,
 h4,
 p {
-  margin: 0px;
-  padding: 0.5em;
+    margin: 0px;
+    padding: 0.5em;
 }
+
 body {
-  background-color: white;
+    background-color: white;
 }
+
 
 /* Para cambir el color de leta de ciertos elementos */
+
 .verde {
-  color: #0c9b3b;
+    color: #0c9b3b;
 }
+
 
 /* Contenedor general*/
+
 .container {
-  font-family: "Righteous", cursive;
-  margin: 20px auto;
-  width: 90%;
+    font-family: "Righteous", cursive;
+    margin: 20px auto;
+    width: 90%;
 }
 
+
 /* Parte del logo y menú */
+
 header {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
 }
 
 .icon {
-  display: none;
+    display: none;
 }
 
 .menu_item {
-  padding: 0.1em;
-  /*display: none;*/
-  font-size: 0.75em;
+    padding: 0.1em;
+    /*display: none;*/
+    font-size: 0.75em;
 }
 
+
 /*Estilos parte principal*/
+
 main {
-  background-color: #666666;
-  display: flex;
-  flex-wrap: wrap;
+    background-color: #666666;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 main section {
-  width: 100%;
+    width: 100%;
 }
 
 section.main_text {
-  color: white;
-  font-weight: bolder;
-  padding: 0.5em;
+    color: white;
+    font-weight: bolder;
+    padding: 0.5em;
 }
 
 section.images {
-  display: flex;
-  flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 section.images img {
-  height: 100px;
-  width: 25%;
+    height: 100px;
+    width: 25%;
 }
 
 .hidden {
-  display: none;
+    display: none;
 }
 
+
 /* Para el caso de pantalla superior a 576px */
+
+@media (min-width: 576px) and (max-width: 992px) {
+    .menu_item {
+        display: inline;
+    }
+    .main_text {
+        position: relative;
+        width: 50%;
+    }
+    .images {
+        position: relative;
+        width: 50%;
+    }
+    section.images img {
+        height: 100px;
+        width: 50%;
+    }
+    h2.verde {
+        float: left;
+    }
+    .novedades.verde {
+        display: inline;
+        padding-right: 4%;
+    }
+    article {
+        width: 25%;
+        float: left;
+    }
+    .icon {
+        display: inline;
+        float: left;
+    }
+}
 
 
 /* Para el caso de pantalla superior a 992px */
 
+@media (min-width: 992px) {
+    .menu_item {
+        display: inline;
+    }
+    .main_text {
+        position: relative;
+        width: 50%;
+        float: right;
+    }
+    .images {
+        position: relative;
+        width: 50%;
+        float: left;
+    }
+    section.images img {
+        height: 100px;
+        width: 33.33%;
+    }
+    h2.verde {
+        float: left;
+    }
+    .novedades.verde {
+        display: inline;
+        padding-right: 4%;
+    }
+    .verde {
+        padding-right: 4%;
+    }
+    article {
+        width: 25%;
+        float: left;
+    }
+    .hidden {
+        display: inline;
+    }
+    main {
+        display: inline-block;
+    }
+    .icon {
+        display: inline;
+        float: left;
+    }
+}
