@@ -1,0 +1,37 @@
+div {
+    border-style: solid;
+    border-width: 2px;
+    border-color: white;
+}
+
+.header {
+    height: 50px;
+}
+
+.footer {
+    height: 35px;
+}
+
+.headerfooter {
+    background-color: #29FE2F;
+}
+
+.numero {
+    background-color: #88ABDD;
+    height: 100px;
+}
+
+.letra {
+    background-color: #CBCBCB;
+    height: 100px;
+}
+
+.equipo {
+    background-color: #2DFFFF;
+    height: 65px;
+}
+
+.cara {
+    background-color: #FE9A5D;
+    height: 100px;
+}

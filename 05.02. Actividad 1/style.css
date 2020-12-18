@@ -1,0 +1,34 @@
+div {
+    border-style: solid;
+    border-width: 2px;
+    border-color: white;
+}
+
+.verde1 {
+    background-color: #29FE2F;
+    height: 100px;
+}
+
+.rojo {
+    background-color: #FC0D1B;
+}
+
+.rosa {
+    background-color: #FD29FC;
+    height: 25px;
+}
+
+.naranja {
+    background-color: #FE9A5D;
+    height: 200px;
+}
+
+.azul {
+    background-color: #0B24F7;
+    height: 100px;
+}
+
+.verde2 {
+    background-color: #29FE2F;
+    height: 50px;
+}
