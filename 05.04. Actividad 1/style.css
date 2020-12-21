@@ -1,0 +1,11 @@
+.recreo {
+    letter-spacing: 20px;
+}
+
+table td.crossed {
+    background-image: linear-gradient(to bottom right, transparent calc(50% - 1px), red, transparent calc(50% + 1px));
+}
+
+body {
+    padding: 4%;
+}
