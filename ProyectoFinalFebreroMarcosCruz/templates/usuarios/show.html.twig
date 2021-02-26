@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Usuarios{% endblock %}
+
+{% block body %}
+    <h1>Usuarios</h1>
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Correo</th>
+                <td>{{ usuario.correo }}</td>
+            </tr>
+            <tr>
+                <th>Roles</th>
+                <td>{{ usuario.roles ? usuario.roles|json_encode : '' }}</td>
+            </tr>
+            <tr>
+                <th>DNI_NIF</th>
+                <td>{{ usuario.DNINIF }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ usuario.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Primer apellido</th>
+                <td>{{ usuario.apellido1 }}</td>
+            </tr>
+            <tr>
+                <th>Segundo apellido</th>
+                <td>{{ usuario.apellido2 }}</td>
+            </tr>
+            <tr>
+                <th>Telefono</th>
+                <td>{{ usuario.telefono }}</td>
+            </tr>
+            <tr>
+                <th>Imagen</th>
+                <td><img src="{{asset('uploads/imagenes/usuarios/')}}/{{usuario.id}}/{{usuario.imagen}}" width="50" height="50"></img></td>
+            </tr>
+            <tr>
+                <th>Empresa para la que trabaja</th>
+                <td>{{ usuario.nombreEmpresa }}</td>
+            </tr>
+            <tr>
+                <th>Verificado</th>
+                <td>{{ usuario.isVerified ? 'Si' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn btn-outline-info float-left mr-5" href="{{ path('usuarios_index') }}">Volver a la lista</a>
+
+    <a class="btn btn-outline-warning float-right" href="{{ path('usuarios_edit', {'id': usuario.id}) }}">Editar</a>
+
+    {{ include('usuarios/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Visitas{% endblock %}
+
+{% block body %}
+    <h1>Visitas</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ visita.id }}</td>
+            </tr>
+            <tr>
+                <th>FechaHora</th>
+                <td>{{ visita.fechaHora ? visita.fechaHora|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Motivo</th>
+                <td>{{ visita.motivo }}</td>
+            </tr>
+            <tr>
+                <th>Problemasencontrados</th>
+                <td>{{ visita.problemasencontrados }}</td>
+            </tr>
+            <tr>
+                <th>Soluciones</th>
+                <td>{{ visita.soluciones }}</td>
+            </tr>
+            <tr>
+                <th>Realizada</th>
+                <td>{{ visita.realizada ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('visitas_index') }}">back to list</a>
+
+    <a href="{{ path('visitas_edit', {'id': visita.id}) }}">edit</a>
+
+    {{ include('visitas/_delete_form.html.twig') }}
+{% endblock %}

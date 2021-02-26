@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit tipo de envio
+{% endblock %}
+
+{% block body %}
+	<h1>Editar tipo de envio</h1>
+
+	{{ include('tipoenvios/_form.html.twig', {'button_label': 'Update'}) }}
+
+	<a class="btn btn btn-outline-info float-left mr-5" href="{{ path('tipoenvios_index') }}">Volver a la lista</a>
+
+	<button type="button" class="btn btn-outline-danger float-right" data-toggle="modal" data-target="#myModal">Borrar</button>
+	{{ include('tipoenvios/_delete_form.html.twig') }}
+{% endblock %}

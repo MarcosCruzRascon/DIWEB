@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Agenda index{% endblock %}
+
+{% block body %}
+    <h1>Agenda index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Correo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for agenda in agendas %}
+            <tr>
+                <td>{{ agenda.id }}</td>
+                <td>{{ agenda.usuario.correo }}</td>
+                <td>
+                    <a href="{{ path('agenda_show', {'id': agenda.id}) }}">show</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('agenda_new') }}">Create new</a>
+{% endblock %}

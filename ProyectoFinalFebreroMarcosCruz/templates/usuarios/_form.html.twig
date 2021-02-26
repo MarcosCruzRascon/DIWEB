@@ -1,0 +1,76 @@
+{% if not form.vars.valid %}
+	<ul>
+		{# Loop through every form item #}
+		{% for child in form.children %}
+			{# Display the errors of the form item #}
+			{% for error in child.vars.errors %}
+				<li class="alert alert-danger">{{error.message}}</li>
+			{% endfor %}
+		{% endfor %}
+	</ul>
+{% endif %}
+{{ form_start(form) }}
+<div class="form-group row">
+	{{ form_label(form.correo, 'Correo', {'label_attr': {'class': 'col-sm-12 col-md-2 col-form-label'}}) }}
+	<div class="col-sm-12 col-md-10">
+		{{ form_widget(form.correo, {'attr': {'class': 'form-control', 'readonly':''}}) }}
+	</div>
+</div>
+<div class="form-group row">
+	{{ form_label(form.nombre, 'Nombre', {'label_attr': {'class': 'col-sm-12 col-md-2 col-form-label'}}) }}
+	<div class="col-sm-12 col-md-10">
+		{{ form_widget(form.nombre, {'attr': {'class': 'form-control'}}) }}
+	</div>
+</div>
+<div class="form-group row">
+	{{ form_label(form.apellido1, 'Apellidos', {'label_attr': {'class': 'col-sm-12 col-md-2 col-form-label'}}) }}
+	<div class="col-sm-12 col-md-10">
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				{{ form_widget(form.apellido1, {'attr': {'class': 'form-control'}}) }}
+			</div>
+			<div class="form-group col-md-6">
+				{{ form_widget(form.apellido2, {'attr': {'class': 'form-control'}}) }}
+			</div>
+		</div>
+	</div>
+</div>
+<div class="form-group row">
+	{{ form_label(form.dni_nif, 'DNI/NIF', {'label_attr': {'class': 'col-sm-12 col-md-2 col-form-label'}}) }}
+	<div class="col-sm-12 col-md-10">
+		{{ form_widget(form.dni_nif, {'attr': {'class': 'form-control', 'readonly':''}}) }}
+	</div>
+</div>
+<div class="form-group row">
+	{{ form_label(form.telefono, 'Telefono', {'label_attr': {'class': 'col-sm-12 col-md-2 col-form-label'}}) }}
+	<div class="col-sm-12 col-md-10">
+		{{ form_widget(form.telefono, {'attr': {'class': 'form-control'}}) }}
+	</div>
+</div>
+<div class="form-group row">
+	{{ form_label(form.roles, 'Roles', {'label_attr': {'class': 'col-sm-12 col-md-2 col-form-label'}}) }}
+	<div class="col-sm-12 col-md-10">
+		{{ form_widget(form.roles, {'attr': {'class': 'form-control'}}) }}
+	</div>
+</div>
+<div class="form-group row">
+	<small class="col-sm-12 col-md-2">{{ form_label(form.imagen, 'Imagen de perfil(JPG,JPEG,WEPB)',{'label_attr': {'class': ''}}) }}</small>
+	<div class="col-sm-12 col-md-10">
+		{{ form_widget(form.imagen, {'attr': {'class': 'form-control'}}) }}
+	</div>
+</div>
+{% if not app.user.isVerified %}
+	<div class="mb-5">
+		<a href="{{path('app_resend', { 'id': app.request.get('id') })}}">
+			<u>
+				<em class="text-info">Reenviar email de confirmacion</em>
+			</u>
+		</a>
+	</div>
+{% endif %}
+<div>
+	<button class="btn btn btn-outline-success float-right ml-5">{{ button_label|default('Save') }}</button>
+</div>
+
+
+{{ form_end(form) }}

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listado de productos
+{% endblock %}
+
+{% block body %}
+	<h1>Listado de productos</h1>
+	<div class="count m-2">
+		<span class="bg-info rounded">Numero de registros:{{ pagination.getTotalItemCount }}</span>
+	</div>
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th scope="col">Nombre</th>
+					<th scope="col">Categoria</th>
+					<th scope="col">Cantidad en almacen</th>
+					<th scope="col">Precio</th>
+					<th scope="col">Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for producto in pagination %}
+					<tr>
+						<td>{{ producto.nombre }}</td>
+						<td>{{ producto.categoria.nombre }}</td>
+						<td>{{ producto.cantidadalmacen }}</td>
+						<td>{{ producto.precio }}€</td>
+						<td>
+							<a class="btn btn-dark btn-sm" href="{{ path('productos_show', {'id': producto.id}) }}">Ver detalles</a>
+							<a class="btn btn-dark btn-sm" href="{{ path('productos_edit', {'id': producto.id}) }}">Editar</a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="6">no records found</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	<div class="navigation row justify-content-center">{{ knp_pagination_render(pagination) }}</div>
+	<a class="btn btn btn-outline-success float-left mr-5" href="{{ path('productos_new') }}">Nuevo producto</a>
+{% endblock %}

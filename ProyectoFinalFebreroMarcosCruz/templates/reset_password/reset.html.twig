@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Resetear contraseña
+{% endblock %}
+
+{% block body %}
+	<h1>Resetear contraseña</h1>
+
+	{{ form_start(resetForm) }}
+	<div class="input-group custom">
+		{{ form_label(resetForm.plainPassword, 'Contraseña', {'label_attr': {'class': 'col-sm-12 col-md-2 col-form-label'}}) }}
+		{{ form_widget(resetForm.plainPassword.first, {'attr': {'class': 'form-control form-control-lg justify-content-between', 'placeholder':"**********"}}) }}
+		<div class="input-group-append custom">
+			<span class="input-group-text">
+				<i class="dw dw-padlock1"></i>
+			</span>
+		</div>
+	</div>
+	<div class="input-group custom">
+		{{ form_label(resetForm.plainPassword, 'Repetir contraseña', {'label_attr': {'class': 'col-sm-12 col-md-2 col-form-label'}}) }}
+		{{ form_widget(resetForm.plainPassword.second, {'attr': {'class': 'form-control form-control-lg justify-content-between', 'placeholder':"**********"}}) }}
+		<div class="input-group-append custom">
+			<span class="input-group-text">
+				<i class="dw dw-padlock1"></i>
+			</span>
+		</div>
+	</div>
+
+	<button class="btn btn-primary">Tesetear contraseña</button>
+	{{ form_end(resetForm) }}
+{% endblock %}

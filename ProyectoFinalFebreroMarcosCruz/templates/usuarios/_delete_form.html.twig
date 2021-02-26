@@ -1,0 +1,19 @@
+<div id="myModal" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<div class="modal-body">
+				<form method="post" action="{{ path('usuarios_delete', {'id': usuario.id}) }}">
+					<h2 class="pb-5 text-danger">Seguro que quiere eliminar este usuario</h2>
+					<input type="hidden" name="_method" value="DELETE">
+					<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ usuario.id) }}">
+					<button type="button" class="btn btn-primary btn-lg float-left" data-dismiss="modal">Cerrar</button>
+					<button class="btn btn-danger btn-lg float-right">Borrar</button>
+				</form>
+			</div>
+			<div class="modal-footer"></div>
+		</div>
+	</div>
+</div>

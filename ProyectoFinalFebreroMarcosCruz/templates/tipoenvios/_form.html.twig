@@ -1,0 +1,15 @@
+{{ form_start(form) }}
+<div class="form-group row">
+	{{ form_label(form.empresaTransporte, 'Empresa de transporte', {'label_attr': {'class': 'col-sm-12 col-md-2 col-form-label'}}) }}
+	<div class="col-sm-12 col-md-10">
+		{{ form_widget(form.empresaTransporte, {'attr': {'class': 'form-control'}}) }}
+	</div>
+</div>
+<div class="form-group row">
+	{{ form_label(form.precio, 'Precio', {'label_attr': {'class': 'col-sm-12 col-md-2 col-form-label'}}) }}
+	<div class="col-sm-12 col-md-10">
+		{{ form_widget(form.precio, {'attr': {'class': 'form-control'}}) }}
+	</div>
+</div>
+<button class="btn btn btn-outline-success float-right ml-5">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

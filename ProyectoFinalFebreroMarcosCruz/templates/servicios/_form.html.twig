@@ -1,0 +1,16 @@
+{{ form_start(form) }}
+<div class="form-group row">
+	{{ form_label(form.nombre, 'Nombres', {'label_attr': {'class': 'col-sm-12 col-md-2 col-form-label'}}) }}
+	<div class="col-sm-12 col-md-10">
+		{{ form_widget(form.nombre, {'attr': {'class': 'form-control'}}) }}
+	</div>
+</div>
+<div class="form-group row">
+	{{ form_label(form.ventajas, 'Ventajas', {'label_attr': {'class': 'col-sm-12 col-md-2 col-form-label'}}) }}
+	<div class="col-sm-12 col-md-10">
+		{{ form_widget(form.ventajas, {'attr': {'class': 'form-control'}}) }}
+	</div>
+</div>
+
+<button class="btn btn btn-outline-success float-right ml-5">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

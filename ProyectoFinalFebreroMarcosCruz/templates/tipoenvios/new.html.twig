@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nuevo tipo de envio{% endblock %}
+
+{% block body %}
+    <h1>Nuevo tipo de envio</h1>
+
+    {{ include('tipoenvios/_form.html.twig') }}
+
+    <a class="btn btn btn-outline-danger float-left mr-5" href="{{ path('tipoenvios_index') }}">Volver a la lista</a>
+{% endblock %}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html class="h-100">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>
+			{% block title %}Bienvenido!
+			{% endblock %}
+		</title>
+		{% block stylesheets %}
+			{% if app.user != null and app.user.roles == ['ROLE_ADMIN'] %}
+				<link href="{{asset('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap')}}" rel="stylesheet">
+				<link rel="stylesheet" type="text/css" href="{{asset('vendors/styles/core.css')}}">
+				<link rel="stylesheet" type="text/css" href="{{asset('vendors/styles/icon-font.min.css')}}">
+				<link rel="stylesheet" type="text/css" href="{{asset('src/plugins/switchery/switchery.min.css')}}">
+				<link rel="stylesheet" type="text/css" href="{{asset('src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css')}}">
+				<link rel="stylesheet" type="text/css" href="{{asset('src/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.css')}}">
+				<link rel="stylesheet" type="text/css" href="{{asset('vendors/styles/style.css')}}">
+			{% else %}
+				<link href='{{asset('http://fonts.googleapis.com/css?family=Lato:300,400,700')}}' rel='stylesheet'>
+				<link rel="stylesheet" type="text/css" href="{{asset('syntax-highlighter/styles/shCore.css')}}" media="all">
+				<link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+				<link rel="stylesheet" href="{{asset('assets/css/owl.carousel.min.css')}}">
+				<link rel="stylesheet" href="{{asset('assets/css/flaticon.css')}}">
+				<link rel="stylesheet" href="{{asset('assets/css/slicknav.css')}}">
+				<link rel="stylesheet" href="{{asset('assets/css/animate.min.css')}}">
+				<link rel="stylesheet" href="{{asset('assets/css/magnific-popup.css')}}">
+				<link rel="stylesheet" href="{{asset('assets/css/fontawesome-all.min.css')}}">
+				<link rel="stylesheet" href="{{asset('assets/css/themify-icons.css')}}">
+				<link rel="stylesheet" href="{{asset('assets/css/slick.css')}}">
+				<link rel="stylesheet" href="{{asset('assets/css/nice-select.css')}}">
+				<link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+
+			{% endif %}
+		{% endblock %}
+
+		{% block javascripts %}
+		{% endblock %}
+	</head>
+	<body class="h-100">
+		{% block navbar %}
+			{% if app.user == null or app.user.roles == ['ROLE_USER'] %}
+				{% include 'comunes/_navUser.html.twig' %}
+			{% else %}
+				<div class="pb-5">
+					<div class="header">
+						{% include 'comunes/_nav.html.twig' %}
+					</div>
+				</div>
+			{% endif %}
+		{% endblock %}
+
+
+		{% if app.user != null and app.user.roles == ["ROLE_ADMIN"] %}
+			<div class="main-container">
+			{% else %}
+				<div class="mt-5">
+				{% endif %}
+				<div class="pd-ltr-20 xs-pd-20-10">
+					<div class="min-height-200px">
+						<div class="page-header">
+							<div class="row">
+								<div class="col-md-12 col-sm-12"> {% block body %}{% endblock %}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</body>
+		</body>
+	</html>
+</body></html></body></html>

@@ -1,0 +1,132 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+	<link href="{{asset('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap')}}" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{{asset('vendors/styles/core.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('vendors/styles/icon-font.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('src/plugins/switchery/switchery.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('src/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('vendors/styles/style.css')}}">
+{% endblock %}
+
+{% block navbar %}
+	{% if app.user == null or app.user.roles == ['ROLE_USER'] %}
+		{% else %}
+			<div class="pb-5">
+				<div class="header">
+					{% include 'comunes/_nav.html.twig' %}
+				</div>
+			</div>
+	{% endif %}
+{% endblock %}
+
+{% block body %}
+	{% for flashError in app.flashes('verify_email_error') %}
+		<div class="alert alert-danger" role="alert">{{ flashError }}</div>
+	{% endfor %}
+
+	<h1>Registro de usuario</h1>
+
+	{{ form_start(registrationForm) }}
+
+	{% if not registrationForm.vars.valid or form_errors(registrationForm)|length > 0 %}
+		<ul class="alert alert-danger">
+			{% if registrationForm.vars.form.children.correo.vars.errors|length > 0 %}
+				<li>{{registrationForm.vars.form.children.correo.vars.errors.0.message}}</li>
+			{% endif %}
+			{% if registrationForm.vars.form.children.dni_nif.vars.errors|length > 0 %}
+				<li>{{registrationForm.vars.form.children.dni_nif.vars.errors.0.message}}</li>
+			{% endif %}
+			{% if registrationForm.vars.form.children.telefono.vars.errors|length > 0 %}
+				<li>{{registrationForm.vars.form.children.telefono.vars.errors.0.message}}</li>
+			{% endif %}
+			{% if registrationForm.vars.form.children.agreeTerms.vars.errors|length > 0 %}
+				<li>{{registrationForm.vars.form.children.agreeTerms.vars.errors.0.message}}</li>
+			{% endif %}
+			{% if registrationForm.vars.form.children.password.vars.errors|length > 0 %}
+				<li>{{registrationForm.vars.form.children.password.vars.errors.0.message}}</li>
+			{% endif %}
+			{% if registrationForm.vars.form.children.imagen.vars.errors|length > 0 %}
+				<li>{{registrationForm.vars.form.children.imagen.vars.errors.0.message}}</li>
+			{% endif %}
+			{{form_errors(registrationForm)}}
+		</ul>
+	{% endif %}
+
+<div class="form-group row">
+	{{ form_label(registrationForm.correo, 'Correo', {'label_attr': {'class': 'col-sm-12 col-md-2 col-form-label'}}) }}
+	<div class="col-sm-12 col-md-10">
+		{{ form_widget(registrationForm.correo, {'attr': {'class': 'form-control'}}) }}
+	</div>
+</div>
+<div class="form-group row">
+	{{ form_label(registrationForm.password,'Contraseña', {'label_attr': {'class': 'col-sm-12 col-md-2 col-form-label'}}) }}
+	<div class="col-sm-12 col-md-10">
+		{{ form_widget(registrationForm.password, {'attr': {'class': 'form-control'}}) }}
+	</div>
+</div>
+<div class="form-group row">
+	{{ form_label(registrationForm.nombre, 'Nombre', {'label_attr': {'class': 'col-sm-12 col-md-2 col-form-label'}}) }}
+	<div class="col-sm-12 col-md-10">
+		{{ form_widget(registrationForm.nombre, {'attr': {'class': 'form-control'}}) }}
+	</div>
+</div>
+<div class="form-group row">
+	{{ form_label(registrationForm.apellido1, 'Apellidos', {'label_attr': {'class': 'col-sm-12 col-md-2 col-form-label'}}) }}
+	<div class="col-sm-12 col-md-10">
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				{{ form_widget(registrationForm.apellido1, {'attr': {'class': 'form-control'}}) }}
+			</div>
+			<div class="form-group col-md-6">
+				{{ form_widget(registrationForm.apellido2, {'attr': {'class': 'form-control'}}) }}
+			</div>
+		</div>
+	</div>
+</div>
+<div class="form-group row">
+	{{ form_label(registrationForm.dni_nif, 'DNI/NIF', {'label_attr': {'class': 'col-sm-12 col-md-2 col-form-label'}}) }}
+	<div class="col-sm-12 col-md-10">
+		{{ form_widget(registrationForm.dni_nif, {'attr': {'class': 'form-control'}}) }}
+	</div>
+</div>
+<div class="form-group row">
+	{{ form_label(registrationForm.telefono, 'Telefono', {'label_attr': {'class': 'col-sm-12 col-md-2 col-form-label'}}) }}
+	<div class="col-sm-12 col-md-10">
+		{{ form_widget(registrationForm.telefono, {'attr': {'class': 'form-control'}}) }}
+	</div>
+</div>
+{% if app.user != null and app.user.roles == ["ROLE_ADMIN"] %}
+	<div class="form-group row">
+		{{ form_label(registrationForm.roles, 'Roles', {'label_attr': {'class': 'col-sm-12 col-md-2 col-form-label'}}) }}
+		<div class="col-sm-12 col-md-10">
+			{{ form_widget(registrationForm.roles, {'attr': {'class': 'form-control'}}) }}
+		</div>
+	</div>
+{% else %}
+	<div class="form-group row" hidden>
+		{{ form_label(registrationForm.roles, 'Roles', {'label_attr': {'class': 'col-sm-12 col-md-2 col-form-label'}}) }}
+		<div class="col-sm-12 col-md-10">
+			{{ form_widget(registrationForm.roles, {'attr': {'class': 'form-control'}}) }}
+		</div>
+	</div>
+{% endif %}
+<div class="form-group row">
+	<small class="col-sm-12 col-md-2">{{ form_label(registrationForm.imagen, 'Imagen de perfil(JPG,JPEG,WEPB)',{'label_attr': {'class': ''}}) }}</small>
+	<div class="col-sm-12 col-md-10">
+		{{ form_widget(registrationForm.imagen, {'attr': {'class': 'form-control'}}) }}
+	</div>
+</div>
+<div class="form-group row">
+	<div class="col-sm-12 col-md-10">
+		<div class="custom-control custom-checkbox">
+			{{ form_widget(registrationForm.agreeTerms, {'attr': {'class': 'custom-control-input'}}) }}
+			{{ form_label(registrationForm.agreeTerms, 'Aceptar terminos', {'label_attr': {'class': 'custom-control-label'}}) }}
+		</div>
+	</div>
+</div>
+<div>
+	<a class="btn btn-outline-info" href="{{path('app_login')}}">Login</a>
+	<button type="submit" class="btn btn-outline-success float-right">Register</button>
+</div>
+{{ form_end(registrationForm) }}{% endblock %}

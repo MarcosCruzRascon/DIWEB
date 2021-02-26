@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Agenda
+{% endblock %}
+
+{% block body %}
+	<h1>Agenda</h1>
+
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Nombre</th>
+				<td>{{ agenda.usuario.correo }}</td>
+			</tr>
+			<tr>
+				<th>Visitas</th>
+				<td>{{ agenda.visitas|length }}
+					{% if (agenda.visitas|length) > 0 %}
+
+						<a href="{{ path('visitas_agenda', {agenda: agenda.id}) }}">Ver visitas</a>
+
+					{% endif %}
+				</td>
+
+			</tr>
+		</tbody>
+	</table>
+
+	<a href="{{ path('agenda_index') }}">back to list</a>
+
+	<a href="{{ path('agenda_edit', {'id': agenda.id}) }}">edit</a>
+
+	{{ include('agenda/_delete_form.html.twig') }}
+{% endblock %}

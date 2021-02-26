@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listado de usuarios
+{% endblock %}
+
+{% block body %}
+	<h1>Listado de usuarios</h1>
+	<div class="count m-2">
+		<span class="bg-info rounded">Numero de registros: {{ pagination.getTotalItemCount }}</span>
+	</div>
+	<div class="table-responsive">
+		<table class="table table-striped table-sm">
+			<thead>
+				<tr>
+					<th scope="col">Imagen</th>
+					<th scope="col">Correo</th>
+					<th scope="col">DNI/NIF</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">1ºApellido</th>
+					<th scope="col">2ºApellido</th>
+					<th scope="col">Telefono</th>
+					<th scope="col">Verificado</th>
+					<th scope="col">Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for usuario in pagination %}
+					<td>
+						{% if usuario.imagen != null %}
+							<img src="{{asset('uploads/imagenes/usuarios/')}}/{{usuario.id}}/{{usuario.imagen}}" width="50" height="50"></img>
+					{% endif %}
+
+				</td>
+				<td>{{ usuario.correo }}</td>
+				<td>{{ usuario.DNINIF }}</td>
+				<td>{{ usuario.nombre }}</td>
+				<td>{{ usuario.apellido1 }}</td>
+				<td>{{ usuario.apellido2 }}</td>
+				<td>{{ usuario.telefono }}</td>
+				<td>{{ usuario.isVerified ? 'Si' : 'No' }}</td>
+				<td>
+					<a class="btn btn-dark btn-sm" href="{{ path('usuarios_show', {'id': usuario.id}) }}">Ver detalles</a>
+					<a class="btn btn-dark btn-sm" href="{{ path('usuarios_edit', {'id': usuario.id}) }}">Editar</a>
+				</td>
+			</tbody>
+		</tr>
+	{% else %}
+		<tr>
+			<td colspan="9">No hay registro de usuarios</td>
+		</tr>
+	{% endfor %}
+</tbody></table></div><div class="navigation row justify-content-center">{{ knp_pagination_render(pagination) }}</div><a class="btn btn btn-outline-success float-left mr-5" href="{{ path('app_register') }}">Nuevo usuario</a>{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listado de servicios
+{% endblock %}
+
+{% block body %}
+	<h1>Listado de servicios</h1>
+	<div class="count m-2">
+		<span class="bg-info rounded">Numero de registros:{{ pagination.getTotalItemCount }}</span>
+	</div>
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for servicio in pagination %}
+					<tr>
+						<td>{{ servicio.nombre }}</td>
+						<td>
+							<a class="btn btn-dark btn-sm" href="{{ path('servicios_show', {'id': servicio.id}) }}">Ver detalles</a>
+							<a class="btn btn-dark btn-sm" href="{{ path('servicios_edit', {'id': servicio.id}) }}">Editar</a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="3">No hay registro de servicios</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	<div class="navigation row justify-content-center">{{ knp_pagination_render(pagination) }}</div>
+	<a class="btn btn btn-outline-success float-left mr-5" href="{{ path('servicios_new') }}">Nuevo servicio</a>
+{% endblock %}

@@ -1,0 +1,137 @@
+<div class="header-left">
+	<div class="brand-logo d-lg-none">
+		<a href="{{path('index')}}">
+			<span class="dark-logo text-primary">TIDC</span>
+			<span class="light-logo text-primary">TIDC</span>
+		</a>
+	</div>
+	{% if app.user != null and app.user.roles == ["ROLE_ADMIN"] %}
+		<div class="menu-icon dw dw-menu"></div>
+	{% endif %}
+</div>
+<div class="header-right col-4">
+	<div class="dashboard-setting user-info mr-5 mt-3">
+		{% if app.user == null %}
+			<a class="dw dw-logout btn btn-outline-primary" href="{{path('app_login')}}">Login</a>
+			<a class="dw dw-logout btn btn-outline-primary" href="{{path('app_register')}}">Registrar</a>
+		{% else %}
+			<span class="user-icon">
+				<img class="rounded-circle" height="30" width="30" src="{{asset('uploads/imagenes/usuarios')}}/{{app.user.id}}/{{app.user.imagen}}" alt="">
+			</span>
+			{% if app.user != null %}
+				<span class="user-name m-3">{{ app.user.nombre }}</span>
+			{% endif %}
+			<a class="dw dw-logout btn btn-outline-primary" href="{{path('app_logout')}}">Log Out</a>
+		{% endif %}
+
+	</div>
+</div>
+{% if app.user != null and app.user.roles == ["ROLE_ADMIN"] %}
+	<div class="left-side-bar">
+		<div class="brand-logo">
+			<a href="{{path('index')}}">
+				<span class="dark-logo text-info">TIDC</span>
+				<span class="light-logo text-info">TIDC</span>
+			</a>
+			<div class="close-sidebar" data-toggle="left-sidebar-close">
+				<i class="ion-close-round"></i>
+			</div>
+		</div>
+		<div class="menu-block customscroll">
+			<div class="sidebar-menu">
+				<ul id="accordion-menu">
+					<li class="dropdown">
+						<a href="javascript:;" class="dropdown-toggle">
+							<span class="micon dw dw-house-1"></span>
+							<span class="mtext">Usuarios</span>
+						</a>
+						<ul class="submenu">
+							<li>
+								<a href="{{ path('usuarios_index') }}">Listado usuarios</a>
+							</li>
+							<li>
+								<a href="{{ path('app_register') }}">Nuevo usuarios</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="javascript:;" class="dropdown-toggle">
+							<span class="micon dw dw-house-1"></span>
+							<span class="mtext">Pedidos</span>
+						</a>
+						<ul class="submenu">
+							<li>
+								<a href="{{ path('pedidos_index') }}">Listado pedidos</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="javascript:;" class="dropdown-toggle">
+							<span class="micon dw dw-house-1"></span>
+							<span class="mtext">Categorias</span>
+						</a>
+						<ul class="submenu">
+							<li>
+								<a href="{{ path('categorias_index') }}">Listado categorias</a>
+							</li>
+							<li>
+								<a href="{{ path('categorias_new') }}">Nueva Categoria</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="javascript:;" class="dropdown-toggle">
+							<span class="micon dw dw-house-1"></span>
+							<span class="mtext">Productos</span>
+						</a>
+						<ul class="submenu">
+							<li>
+								<a href="{{ path('productos_index') }}">Listado productos</a>
+							</li>
+							<li>
+								<a href="{{ path('productos_new') }}">Nuevo producto</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="javascript:;" class="dropdown-toggle">
+							<span class="micon dw dw-house-1"></span>
+							<span class="mtext">Servicios</span>
+						</a>
+						<ul class="submenu">
+							<li>
+								<a href="{{ path('servicios_index') }}">Listado servicios</a>
+							</li>
+							<li>
+								<a href="{{ path('servicios_new') }}">Nuevo servicio</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="javascript:;" class="dropdown-toggle">
+							<span class="micon dw dw-house-1"></span>
+							<span class="mtext">Tipo de envios</span>
+						</a>
+						<ul class="submenu">
+							<li>
+								<a href="{{ path('tipoenvios_index') }}">Listado tipo de envios</a>
+							</li>
+							<li>
+								<a href="{{ path('tipoenvios_new') }}">Nuevo tipo de envio</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="mobile-menu-overlay"></div>
+	{% endif %}
+
+	<script src="{{asset('vendors/scripts/core.js')}}"></script>
+	<script src="{{asset('vendors/scripts/script.min.js')}}"></script>
+	<script src="{{asset('vendors/scripts/process.js')}}"></script>
+	<script src="{{asset('vendors/scripts/layout-settings.js')}}"></script>
+	<script src="{{asset('src/plugins/switchery/switchery.min.js')}}"></script>
+	<script src="{{asset('src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js')}}"></script>
+	<script src="{{asset('src/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js')}}"></script>
+	<script src="{{asset('vendors/scripts/advanced-components.js')}}"></script>
