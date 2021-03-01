@@ -1,0 +1,41 @@
+#divanimado {
+    width: 80px;
+    height: 30px;
+    background: red;
+    color: #ffffff;
+    position: relative;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px;
+    animation: divanimado 5s 1;
+    border-radius: 5px;
+    animation-iteration-count: infinite;
+}
+
+@keyframes divanimado {
+    0% {
+        transform: rotate(0deg);
+        left: 0px;
+    }
+    25% {
+        transform: rotate(20deg);
+        left: 0px;
+    }
+    50% {
+        transform: rotate(0deg);
+        left: 500px;
+    }
+    55% {
+        transform: rotate(0deg);
+        left: 500px;
+    }
+    70% {
+        transform: rotate(0deg);
+        left: 500px;
+        background: black;
+    }
+    100% {
+        transform: rotate(-360deg);
+        left: 0px;
+    }
+}
